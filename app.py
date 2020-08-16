@@ -17,8 +17,7 @@ app = flask.Flask(__name__, template_folder='templates')
 def news_call_classifier(fact_check):
 
     url = "https://bing-news-search1.p.rapidapi.com/news/search"
-    querystring = {"count": "50", "setLang": "EN", "freshness": "Day",
-                   "textFormat": "Raw", "safeSearch": "Off", "q": fact_check}
+    querystring = {"count": "50", "setLang": "EN", "freshness": "Day","textFormat": "Raw", "safeSearch": "Off", "q": fact_check}
 
     headers = {
         'x-rapidapi-host': "bing-news-search1.p.rapidapi.com",
@@ -48,7 +47,7 @@ def news_call_classifier(fact_check):
 def predict():
     query_parameters = request.args
     url = query_parameters.get('news')
-    url = url.split(sep="+")
+    url = url.split(sep="%20")
     url = " ".join(url)
     # Passing the news article to the model and returing whether it is Fake or Real
     pred = news_call_classifier(url)
