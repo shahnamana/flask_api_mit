@@ -42,6 +42,9 @@ def news_call_classifier(fact_check):
     print(ratio1)
     return ratio1*100
 
+@app.route('/')
+def index():
+    return "The API is WORKING FINE"
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():

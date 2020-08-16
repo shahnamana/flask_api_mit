@@ -1,1 +1,1 @@
-web: gunicorn app:flaskdemo123 --timeout 100 --log-files=-
+web: gunicorn app:flaskdemo123 --timeout 100 --log-file=-
